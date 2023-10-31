@@ -13,10 +13,10 @@ function ProjectCard() {
   return (
     <>
       
-          <Card className='shadow mb-3' onClick={handleShow}>
-            <Card.Img variant="top" src={projectPic} />
+          <Card className='shadow mb-3 ' onClick={handleShow}>
+            <Card.Img  variant="top" src={projectPic} />
             <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title className='text-center'>Card Title</Card.Title>
             </Card.Body>
           </Card>
 

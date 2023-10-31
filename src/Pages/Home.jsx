@@ -13,7 +13,7 @@ function Home() {
             <h1 style={{fontSize:"80px"}} className='fw-bolder text-light'><i class="fa-brands fa-algolia fa-fade"></i> Project Fair</h1>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur blanditiis minus unde officia. Distinctio rerum non ab. Possimus, molestiae! Voluptatum est expedita tenetur accusantium quia explicabo, soluta laboriosam deserunt cupiditate.
             Voluptatem rem debitis dolor, non enim magnam, laudantium est placeat numquam dolore magni iste laborum. Temporibus quia incidunt omnis nihil deserunt voluptate ratione sunt, autem necessitatibus neque nam fugit placeat!</p>
-            <button className='btn btn-warning'>Start to explore</button>
+            <Link to={'/login'} className='btn btn-warning'>Start to explore</Link>
           </Col>
 
           <Col sm={12} md={6} className='text-center'>
@@ -26,12 +26,6 @@ function Home() {
         <h1 className='text-center mb-5'>Explore Our Projects</h1>
         <marquee scrollAmount={25}>
           <Row>
-            <Col sm={12} md={6} lg={4}>
-              <ProjectCard/>
-            </Col>
-            <Col sm={12} md={6} lg={4}>
-              <ProjectCard/>
-            </Col>
             <Col sm={12} md={6} lg={4}>
               <ProjectCard/>
             </Col>
