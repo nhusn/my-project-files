@@ -16,7 +16,7 @@ function Auth({ register }) {
                         </div>
                         <div className="col-lg-6">
                             <div className="d-flex align-items-center flex-column">
-                                <h1 className='fw-bolder text-light'><i class="fa-brands fa-algolia fa-fade"></i> Project Fair</h1>
+                                <h1 className='fw-bolder text-light'><i className="fa-brands fa-algolia fa-fade"></i> Project Fair</h1>
                                 <h5 className='fw-bolder mt-2 pb-3 text-light'>
                                     {
                                         isRegisterForm ? "Sign up to your Account" : "Sign in to your Account"

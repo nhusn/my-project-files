@@ -10,7 +10,7 @@ function Home() {
       <div style={{width:"100%",height:"100vh"}} className='bg-secondary container-fluid rounded'>
         <Row className='align-items-center p-5'>
           <Col sm={12} md={6}>
-            <h1 style={{fontSize:"80px"}} className='fw-bolder text-light'><i class="fa-brands fa-algolia fa-fade"></i> Project Fair</h1>
+            <h1 style={{fontSize:"80px"}} className='fw-bolder text-light'><i className="fa-brands fa-algolia fa-fade"></i> Project Fair</h1>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur blanditiis minus unde officia. Distinctio rerum non ab. Possimus, molestiae! Voluptatum est expedita tenetur accusantium quia explicabo, soluta laboriosam deserunt cupiditate.
             Voluptatem rem debitis dolor, non enim magnam, laudantium est placeat numquam dolore magni iste laborum. Temporibus quia incidunt omnis nihil deserunt voluptate ratione sunt, autem necessitatibus neque nam fugit placeat!</p>
             <Link to={'/login'} className='btn btn-warning'>Start to explore</Link>

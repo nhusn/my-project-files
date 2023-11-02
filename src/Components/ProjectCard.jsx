@@ -36,8 +36,8 @@ function ProjectCard() {
                 </Col>
             </Row>
             <div className='d-flex' style={{gap:"10px"}}>
-                <Link to={'https://github.com/nhusn/Veedio'}><i class="fa-brands fa-github fa-xl"></i></Link>
-                <Link to={'https://cerulean-belekoy-bc4473.netlify.app/'}><i class="fa-solid fa-globe fa-xl"></i></Link>
+                <Link to={'https://github.com/nhusn/Veedio'}><i className="fa-brands fa-github fa-xl"></i></Link>
+                <Link to={'https://cerulean-belekoy-bc4473.netlify.app/'}><i className="fa-solid fa-globe fa-xl"></i></Link>
             </div>
         </Modal.Body>
       </Modal>

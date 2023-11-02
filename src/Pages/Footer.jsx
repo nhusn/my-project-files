@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function Footer() {
   return (
     <div>
-      <div style={{ width: "100%", height: "300px" }} className='d-flex flex-wrap justify-content-evenly align-items-center bg-primary'>
+      <div style={{ width: "100%", height: "300px" }} className='d-flex flex-wrap justify-content-evenly align-items-center bg-primary mt-4'>
         <div style={{ width: "400px" }} className="company">
           <Link to={'/'} className='fs-4' style={{ textDecoration: "none", color: "white" }}>
             <i className="fa-solid fa-upload me-2"></i>
@@ -44,25 +44,25 @@ function Footer() {
           </form>
           <div className='icons d-flex justify-content-between'>
             <Link style={{ textDecoration: "none" }} className='text-light' to={'https://react-bootstrap.github.io/'}>
-              <i class="fa-brands fa-facebook"></i>
+              <i className="fa-brands fa-facebook"></i>
             </Link>
             <Link style={{ textDecoration: "none" }} className='text-light' to={'https://react-bootstrap.github.io/'}>
-              <i class="fa-brands fa-instagram"></i>
+              <i className="fa-brands fa-instagram"></i>
             </Link>
             <Link style={{ textDecoration: "none" }} className='text-light' to={'https://react-bootstrap.github.io/'}>
-              <i class="fa-brands fa-github"></i>
+              <i className="fa-brands fa-github"></i>
             </Link>
             <Link style={{ textDecoration: "none" }} className='text-light' to={'https://react-bootstrap.github.io/'}>
-              <i class="fa-brands fa-linkedin"></i>
+              <i className="fa-brands fa-linkedin"></i>
             </Link>
             <Link style={{ textDecoration: "none" }} className='text-light' to={'https://react-bootstrap.github.io/'}>
-              <i class="fa-brands fa-whatsapp"></i>
+              <i className="fa-brands fa-whatsapp"></i>
             </Link>
             <Link style={{ textDecoration: "none" }} className='text-light' to={'https://react-bootstrap.github.io/'}>
-              <i class="fa-brands fa-twitter"></i>
+              <i className="fa-brands fa-twitter"></i>
             </Link>
             <Link style={{ textDecoration: "none" }} className='text-light' to={'https://react-bootstrap.github.io/'}>
-          <i class="fa-brands fa-youtube"></i>
+          <i className="fa-brands fa-youtube"></i>
           </Link>
           </div>
         </div>

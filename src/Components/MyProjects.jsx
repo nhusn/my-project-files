@@ -3,7 +3,7 @@ import AddProjects from './AddProjects'
 
 function MyProjects() {
   return (
-    <div className='card shadow p-3 mt-3'>
+    <div className='card shadow p-3 '>
         <div className="d-flex">
             <h3>My Projects</h3>
             <div className="ms-auto">
@@ -15,7 +15,7 @@ function MyProjects() {
                     <h5>Project Title</h5>
                     <div className="icon ms-auto">
                         <button className="btn"><i className="fa-solid fa-pen-to-square"></i></button>
-                        <button className="btn"><i class="fa-brands fa-github"></i></button>
+                        <button className="btn"><i className="fa-brands fa-github"></i></button>
                         <button className="btn"><i className="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
