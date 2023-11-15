@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, json, useNavigate } from 'react-router-dom'
 import loginImage from '../Assets/login.png'
 import { Form } from 'react-bootstrap'
 import { loginAPI, registerAPI } from '../services/allAPI'
@@ -42,10 +42,13 @@ function Auth({ register }) {
         }else{
             const result = await loginAPI(userData)
             if(result.status==200){
-                toast.success(`${result.data.username} login succesfull!!!`)
+                // toast.success(`${result.data.username} login succesfull!!!`)
+                sessionStorage.setItem("existingUser",JSON.stringify(result.data.existingUser))
+                sessionStorage.setItem("token",result.data.token)
                 setUserData({
                     username:"",email:"",password:""
                 }) 
+                navigate('/')
             }else{
                 toast.warning(result.response.data)
                 // console.log(result);
@@ -56,7 +59,7 @@ function Auth({ register }) {
     return (
         <div style={{ width: "100%", height: "100vh" }} className='d-flex justify-content-center align-items-center'>
             <div className='w-75 container'>
-                <Link style={{ textDecoration: "none", color: "black" }} to={'/'}>Back to home</Link>
+                <Link style={{ textDecoration: "none", color: "black" }} to={'/'}><i class="fa-solid fa-arrow-left me-2 "></i>Back to home</Link>
                 <div className='card shadow p-5 bg-success'>
                     <div className="row align-items-center">
                         <div className="col-lg-6">
@@ -87,7 +90,7 @@ function Auth({ register }) {
                                             isRegisterForm ? 
                                             <div className='text-center'>
                                                 <button className='btn btn-light'onClick={(e)=>handleRegister(e)}>Register</button>
-                                                <p>Already have an Account ? Click here to <Link style={{textDecoration:"none",color:"white"}} to={'/login'}>Login</Link></p>
+                                                <p>Already have an Account ? Click here to <Link style={{color:"white"}} to={'/login'}>Login</Link></p>
                                             </div>
                                             :
                                             <div className='text-center'>

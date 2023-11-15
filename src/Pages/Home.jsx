@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Row } from 'reactstrap'
 import titleImg from '../Assets/title.png'
 import ProjectCard from '../Components/ProjectCard'
 import { Link } from 'react-router-dom'
 
 function Home() {
+  const [loggedIn,setLoggedIn] = useState(false)
+  useEffect(()=>{
+    if(sessionStorage.getItem("token")){
+      setLoggedIn(true)
+    }else{
+      setLoggedIn(false)
+    }
+  },[])
+
   return (
     <>
       <div style={{width:"100%",height:"100vh"}} className='bg-secondary container-fluid rounded'>
@@ -13,7 +22,10 @@ function Home() {
             <h1 style={{fontSize:"80px"}} className='fw-bolder text-light'><i className="fa-brands fa-algolia fa-fade"></i> Project Fair</h1>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur blanditiis minus unde officia. Distinctio rerum non ab. Possimus, molestiae! Voluptatum est expedita tenetur accusantium quia explicabo, soluta laboriosam deserunt cupiditate.
             Voluptatem rem debitis dolor, non enim magnam, laudantium est placeat numquam dolore magni iste laborum. Temporibus quia incidunt omnis nihil deserunt voluptate ratione sunt, autem necessitatibus neque nam fugit placeat!</p>
+            { loggedIn ?
+            <Link to={'/dashboard'} className='btn btn-warning'>Manage your projects</Link>:
             <Link to={'/login'} className='btn btn-warning'>Start to explore</Link>
+            }
           </Col>
 
           <Col sm={12} md={6} className='text-center'>
