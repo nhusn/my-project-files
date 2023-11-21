@@ -12,7 +12,7 @@ function Profile() {
         <Collapse in={open}>
             <div className="row justify-content-center mt-3">
                 {/* upload pic */}
-                <label className='text-center'>
+                <label className='text-center roundeded-5'>
                     <input style={{display:'none'}} type="file" />
                     <img width={'200px'} height={'200px'} className='rounded circle' src="https://www.svgrepo.com/show/384674/account-avatar-profile-user-11.svg" alt="upload picture" />
                 </label>
