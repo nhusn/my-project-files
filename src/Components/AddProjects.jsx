@@ -25,6 +25,8 @@ function AddProjects() {
     })
     const [preview, setPreview] = useState("")
 
+    
+
     useEffect(() => {
         if (projectDetails.projectImage) {
             setPreview(URL.createObjectURL(projectDetails.projectImage))

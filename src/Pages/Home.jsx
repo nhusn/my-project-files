@@ -3,15 +3,27 @@ import { Col, Row } from 'reactstrap'
 import titleImg from '../Assets/title.png'
 import ProjectCard from '../Components/ProjectCard'
 import { Link } from 'react-router-dom'
+import { homeProjectAPI } from '../services/allAPI'
 
 function Home() {
+  const [homeProject,setHomeProject] = useState([])
   const [loggedIn,setLoggedIn] = useState(false)
+  const getHomeProject = async ()=>{
+    const result = await homeProjectAPI()
+    if(result.status===200){
+        setHomeProject(result.data)
+    }else{
+        console.log(result.response.data);
+    }
+    
+}
   useEffect(()=>{
     if(sessionStorage.getItem("token")){
       setLoggedIn(true)
     }else{
       setLoggedIn(false)
     }
+    getHomeProject()
   },[])
 
   return (
@@ -38,9 +50,13 @@ function Home() {
         <h1 className='text-center mb-5'>Explore Our Projects</h1>
         <marquee scrollAmount={25}>
           <Row>
-            <Col sm={12} md={6} lg={4}>
-              <ProjectCard/>
+            { homeProject?.length>0 ? homeProject.map(project=>(
+              <Col sm={12} md={6} lg={4}>
+              <ProjectCard project={project}/>
             </Col>
+            )):null
+            
+            }
           </Row>
         </marquee>
         <div className='text-center mt-5 mb-3'><Link to={'/projects'}>view more projects</Link></div>
