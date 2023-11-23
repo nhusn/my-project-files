@@ -1,5 +1,5 @@
 import { TextField } from '@mui/material';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -7,8 +7,10 @@ import PlaceImg from '../Asset/image.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { addProjectAPI } from '../services/allAPI';
+import { addProjectResponseContext } from '../Contexts/ContextShare';
 
 function AddProjects() {
+    const {addProjectResponse,setAddProjectResponse} = useContext(addProjectResponseContext)
     const [show, setShow] = useState(false);
     const handleClose = () => {
         setShow(false);
@@ -62,7 +64,7 @@ function AddProjects() {
                 if (result.status == 200) {
                     console.log(result.data);
                     handleClose()
-                    alert("Project added")
+                    setAddProjectResponse(result.data)
                 } else {
                     console.log(result);
                     console.log(result.response.data);

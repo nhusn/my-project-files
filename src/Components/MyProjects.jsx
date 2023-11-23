@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import AddProjects from './AddProjects'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { userProjectAPI } from '../services/allAPI';
+import { addProjectResponseContext } from '../Contexts/ContextShare';
+import EditProject from './EditProject';
 
 function MyProjects() {
+    const {addProjectResponse,setAddProjectResponse}=useContext(addProjectResponseContext)
     const [userProjects,setUserProject]=useState([])
     const getUserProjects = async ()=>{
         if(sessionStorage.getItem("token")){
@@ -24,7 +27,7 @@ function MyProjects() {
 
     useEffect(()=>{
         getUserProjects()
-    },[])
+    },[addProjectResponse])
   return (
     <div className='card shadow p-3 '>
         <div className="d-flex">
@@ -39,7 +42,7 @@ function MyProjects() {
                     <div className="border d-flex align-items-center rounded p-2 mb-2">
                     <h5>{project.title}</h5>
                     <div className="icon ms-auto">
-                        <button className="btn"><i className="fa-solid fa-pen-to-square"></i></button>
+                        <EditProject project={project}/>
                         <a href={project.github} target='_blank' className="btn"><i className="fa-brands fa-github"></i></a>
                         <button className="btn"><i className="fa-solid fa-trash"></i></button>
                     </div>
