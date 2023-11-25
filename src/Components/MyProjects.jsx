@@ -41,7 +41,7 @@ function MyProjects() {
                 userProjects.map(project=>(
                     <div className="border d-flex align-items-center rounded p-2 mb-2">
                     <h5>{project.title}</h5>
-                    <div className="icon ms-auto">
+                    <div className="icon ms-auto d-flex flex-wrap">
                         <EditProject project={project}/>
                         <a href={project.github} target='_blank' className="btn"><i className="fa-brands fa-github"></i></a>
                         <button className="btn"><i className="fa-solid fa-trash"></i></button>

@@ -38,7 +38,7 @@ function Projects() {
           <Col lg={4} md={6} sm={12}>
           <ProjectCard project={project}/>
         </Col>
-        )): <p className='text-center fw-bolder text-danger fs-1 bg-info'>Please Login</p>
+        )): <p className='text-center fw-bolder text-danger fs-1'>Please Login</p>
         }
       </Row>
     </div>

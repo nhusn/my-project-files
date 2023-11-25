@@ -23,3 +23,7 @@ export const allProjectsAPI = async (searchKey,reqHeader)=>{
 export const userProjectAPI = async (reqHeader)=>{
     return await commonAPI("GET",`${BASE_URL}/user/projects`,"",reqHeader)
 }
+
+export const editProjectAPI = async(projectId,reqHeader,reqBody)=>{
+    return await commonAPI("PUT",`${BASE_URL}/projects/edit/${projectId}`,reqBody,reqHeader)
+}
