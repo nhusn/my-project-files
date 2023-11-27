@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { BASE_URL } from '../services/baseUrl';
 import { Modal,Button } from 'react-bootstrap';
 import { TextField } from '@mui/material';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { editProjectAPI } from '../services/allAPI';
+import { updateProjectResponseContext } from '../Contexts/ContextShare';
 
 
 function EditProject({project}) {
+    const {updateProjectResponse,setUpdateProjectResponse}=useContext(updateProjectResponseContext)
     const [preview,setPreview] = useState("")
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
@@ -35,11 +37,11 @@ function EditProject({project}) {
             reqbody.append("website", website)
             preview?reqbody.append("projectImage", projectImage):reqbody.append("projectImage", project.projectImage)
 
-            const token = sessionStorage.getItem("token")
+            const token = sessionStorage.getItem("token") 
+            console.log(token);           
             if(preview){
                 const reqHeader={
-                    "Content-Type": "multipart/form-data",
-                    "Authorization": `Bearer ${token}`
+                    "Content-Type":"multipart/form-data","Authorization":`Bearer ${token}`
                 }
                 // api call
                 const result = await editProjectAPI(id,reqbody,reqHeader)
@@ -50,17 +52,19 @@ function EditProject({project}) {
                     toast.error(result.response.data)
                 }
             }else{
+                
                 const reqHeader={
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
+                    "Content-Type":"application/json","Authorization":`Bearer ${token}`
                 }
                 // api call
                 const result = await editProjectAPI(id,reqbody,reqHeader)
                 if (result.status == 200) {
                     handleClose()
+                    setUpdateProjectResponse(result.data)
                 } else {
                     console.log(result);
                     toast.error(result.response.data)
+                    setUpdateProjectResponse(result.data)
                 }
             }
         }
@@ -102,7 +106,7 @@ function EditProject({project}) {
                         <Button variant="secondary" onClick={handleClose}>
                             Close
                         </Button>
-                        <Button variant="primary">
+                        <Button variant="primary" onClick={handleUpdate}>
                             Save Changes
                         </Button>
                     </Modal.Footer>

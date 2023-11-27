@@ -1,8 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { tokenAutherisationContext } from '../Contexts/TokenAuth'
 
 
 function Header({insideDashboard}) {
+  const {isAuthorized,setIsAuthorized}=useContext(tokenAutherisationContext)
+  const navigate = useNavigate()
+  const handleLogout = ()=>{
+    sessionStorage.removeItem("existingUser")
+    sessionStorage.removeItem("token")
+    setIsAuthorized(false)
+    navigate('/')
+  }
   return (
     <div>
         <div className='bg-secondary p-4 mb-3 d-flex justify-content-between w-100'>
@@ -12,7 +21,7 @@ function Header({insideDashboard}) {
             </Link>
             { insideDashboard &&
               <div>
-              <button className='btn btn-success'>Logout</button>
+              <button className='btn btn-success' onClick={handleLogout}>Logout</button>
             </div>
             }
         </div>
